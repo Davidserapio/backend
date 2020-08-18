@@ -19,7 +19,29 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+ //SessionController
+ 'POST /v1/sessions/login': { action: 'session/login' },
+
+ //PostController
+ 'POST /v1/posts': { action: 'post/create' },
+ 'GET /v1/posts': { action: 'post/find-all' },
+ 'GET /v1/posts/:id': { action: 'post/find' },
+ 'PUT /v1/posts/:id': { action: 'post/update' },
+ 'DELETE /v1/posts/:id': { action: 'post/delete' },
+
+  //UserController
+  'POST /v1/users': { action: 'user/create' },
+  'GET /v1/users': { action: 'user/find-all' },
+  'GET /v1/users/:id': { action: 'user/find' },
+  'PUT /v1/users/:id': { action: 'user/update' },
+  'DELETE /v1/users/:id': { action: 'user/delete' },
+
+  //WarehouseController
+  'POST /v1/warehouse': { action: 'warehouse/create' },
+  'GET /v1/warehouse': { action: 'warehouse/find-all' },
+  'GET /v1/warehouse/:id': { action: 'warehouse/find' },
+  'PUT /v1/warehouse/:id': { action: 'warehouse/update' },
+  'DELETE /v1/warehouse/:id': { action: 'warehouse/delete' },
 
 
   /***************************************************************************

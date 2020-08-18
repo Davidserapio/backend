@@ -19,4 +19,9 @@ module.exports.policies = {
 
   // '*': true,
 
+  // PostController: {
+  //   'create': 'isLoggedIn',
+  //   'update': 'isLoggedIn'
+  // },
+  
 };
