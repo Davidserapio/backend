@@ -1,5 +1,5 @@
 /**
- * Post.js
+ * Bodega.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -13,11 +13,12 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    title: { type: 'string', required: true },
-    thumbnail: { type: 'string',  required: true },
-    content: { type: 'string', required: true	},
-    previewText: { type: 'string', required: true	},
-
+    name: { type: 'string', required: true, unique: true },
+    area: { type: 'string', required: true },
+    number: { type: 'string', required: true },
+    telephone: { type: 'string', required: true },
+    information: { type: 'string', required: true },
+    thumbnail: { type: 'string', required: true },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -28,7 +29,7 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    user: { model: 'user' }, //lado muchos entres post y user
+    users: {  collection: 'user', via: 'warehouses' },//lado uno entre userwarehouse y wrehouse
   },
 
 };

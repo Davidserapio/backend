@@ -36,8 +36,8 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
 
-    posts: { collection: 'post', via: 'user' },//uno users
-    user_warehouses: {  collection: 'userWarehouse', via: 'user' }, //lado uno
+    posts: { collection: 'post', via: 'user' },//lado uno users y post
+    warehouses: {  collection: 'warehouse', via: 'users' }, //lado uno entre userWarehouse y user
   },
 
 };

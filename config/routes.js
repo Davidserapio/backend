@@ -36,13 +36,16 @@ module.exports.routes = {
   'PUT /v1/users/:id': { action: 'user/update' },
   'DELETE /v1/users/:id': { action: 'user/delete' },
 
+  
   //WarehouseController
-  'POST /v1/warehouse': { action: 'warehouse/create' },
-  'GET /v1/warehouse': { action: 'warehouse/find-all' },
-  'GET /v1/warehouse/:id': { action: 'warehouse/find' },
-  'PUT /v1/warehouse/:id': { action: 'warehouse/update' },
-  'DELETE /v1/warehouse/:id': { action: 'warehouse/delete' },
-
+  'POST /v1/warehouses/users/:user': { action: 'warehouse/create' },
+  'GET /v1/warehouses/users/:user/warehouses/:warehouse': { action: 'warehouse/add-to-user' },                                     
+  'GET /v1/warehouses': { action: 'warehouse/find-all' },
+  'GET /v1/warehouses/:id': { action: 'warehouse/find' },
+  'PUT /v1/warehouses/:id': { action: 'warehouse/update' },
+  'DELETE /v1/warehouses/:id': { action: 'warehouse/delete' },
+  'DELETE /v1/warehouses/:warehouse/users/:user': { action: 'warehouse/delete-user-warehouse' },// solo debo pasar un id para borrar
+  
 
   /***************************************************************************
   *                                                                          *

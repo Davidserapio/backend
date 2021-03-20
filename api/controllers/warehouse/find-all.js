@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Finds all users.',
+  friendlyName: 'Finds all warehouse.',
 
 
-  description: 'Finds all of the users.',
+  description: 'Fine all of the warehouse.',
 
 
   inputs: {
@@ -26,15 +26,15 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    const foundUsers = await User.find().populate('warehouses');
-    if (foundUsers.length == 0) {
+
+    const foundWarehouse = await Warehouse.find()
+    if(foundWarehouse.length == 0) {
       let payload = {
         code: 'E_RESOURCE_NOT_FOUND',
-        message: 'No existen usuarios creados'
+        message: 'No existe la bodega con ese ID'
       }
       return exits.notFound(payload);
     }
-    return exits.success(foundUsers);
+    return exits.success(foundWarehouse);
   }
-
 };

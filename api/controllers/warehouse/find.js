@@ -1,16 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'Find a user.',
+  friendlyName: 'Find a warehouse.',
 
 
-  description: 'Find specific user by its id.',
+  description: 'Find a specific warehouse by its id.',
 
 
   inputs: {
 
     id: {
-      description: 'The id of the user.',
+      description: 'The id of the warehouse.',
       type: 'string',
       required: true
     }
@@ -18,9 +18,9 @@ module.exports = {
 
 
   exits: {
-
+    
     success: {
-      description: 'User found.',
+      description: 'warehouse found.',
       statusCode: 200
     },
     notFound: {
@@ -32,15 +32,16 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    const foundUser = await User.findOne({id: inputs.id}).populate('warehouses');
-    if (!foundUser) {
+    const foundWarehouse = await Warehouse.findOne({id: inputs.id});
+    if (!foundWarehouse) {
       let payload = {
         code: 'E_RESOURCE_NOT_FOUND',
-        message: 'El usuario no fue encontrado'
+        message: 'La bodega quiza ya fue eliminada, Ya que no fue encontrada'
       }
       return exits.notFound(payload);
     }
-    return exits.success(foundUser);
+    return exits.success(foundWarehouse);
   }
+
 
 };

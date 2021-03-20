@@ -35,7 +35,6 @@ module.exports = {
   },
 
 
-
   fn: async function (inputs, exits) {
     const updatedPost = await Post.updateOne({id: inputs.id}) 
     .set(inputs.post);

@@ -9,11 +9,6 @@ module.exports = {
 
   inputs: {
 
-    author: {
-      description: 'The author of the post.',
-      type: 'string',
-      required: true
-    },
     title: {
       description: 'The title of the post.',
       type: 'string',
@@ -55,12 +50,13 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     let post = {
-      author: inputs.author,
       title: inputs.title,
       thumbnail: inputs.thumbnail,
       content: inputs.content,
       previewText: inputs.previewText
+
     };
+    
     
     await Post.create(post)
       .fetch()
